@@ -1,4 +1,4 @@
-# Tutorat 01 - 20.10.2023
+# Tutorium 01 - 20.10.2023
 
 ## Today
 
