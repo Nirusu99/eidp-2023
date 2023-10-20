@@ -81,6 +81,13 @@
 
 * Abgabe 23.10.2023
 
+## Notes Tutorium
+
+Die Windows `C:` Festplatte findet man in WSL unter `/mnt/c/`, andere Festplatten findet man analog dazu
+
+`D: -> /mnt/d/`
+...
+
 ## Wichtige Links
 
 * [Homepage EidP](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/)
