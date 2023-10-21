@@ -75,7 +75,6 @@
 * Man lernt umgang mit dem Terminal
 * Es ist deutlich schneller nach Eingewöhnung
 * Etwas unintuitiv wenn man sich mit dem Terminal nicht auskennt
-* Später in der Softwareentwicklung wichtig, da einige Probleme nicht so einfach über eine Oberfläche lösbar sind
 
 ## [Übungsblatt 01](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/exercise/sheet01.pdf)
 
