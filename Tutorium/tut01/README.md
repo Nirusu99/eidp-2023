@@ -20,7 +20,7 @@
 <img src="../../src/img/discord.png" height="200">
 <img src="../../src/img/telegram.png" height="200">
 <img src="../../src/img/feedback-google-forms.png" height="200">
-<img src="../../src/img/tutorium-01.png" height="200">
+<img src="./src/tutorium-01.png" height="200">
 
 ## Zusammenfassung Vorlesung
 
