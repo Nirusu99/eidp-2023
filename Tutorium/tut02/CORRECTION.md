@@ -29,7 +29,6 @@ heißt nicht
 
 ```sh
 
-
 Python
 Python
 Python
@@ -38,7 +37,6 @@ Python
 oder
 
 ```sh
-
 
  Python
  Python
