@@ -15,6 +15,7 @@ Gib den Key in die Konsole aus mit
 ```sh
 cat ~/.ssh/id_ed25519.pub
 ```
+
 Kopiere mit Strg+Shift+C oder Rechtklick den Key aus dem Terminal und fügen ihn im [Git](https://git.laurel.informatik.uni-freiburg.de/user/settings/keys) als SSH Key hinzu.
 
 ### Windows
@@ -145,6 +146,7 @@ Changes to be committed:
         new file:   hello_world.py
 ```
 
+mit `git add -A` können alle aktuelle Änderungen hinzugefügt werden.
 nun können wir die Datei in unser Git eintragen indem wir `git commit -m 'meine nachricht'` verwenden.
 
 ```sh
