@@ -64,6 +64,8 @@ assert number != string
 2.0
 >>> str(2.0)
 '2.0'
+>>> type(2.0)
+<class 'float'>
 ```
 
 - Input/Output
