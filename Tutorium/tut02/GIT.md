@@ -1,5 +1,7 @@
 # Beispiel Git-Workflow
 
+---
+
 ## SSH-Key generieren und im Git hinzufügen
 
 ### Linux & Mac-OS
@@ -32,12 +34,15 @@ fügen dann den Key im [Git](https://git.laurel.informatik.uni-freiburg.de/user/
 ### Mac
 
 Generiere einen Key mit
+
 ```sh
 ssh-keygen -t ed25519 -C "you@mail.com"
 pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 fügen dann den Key im [Git](https://git.laurel.informatik.uni-freiburg.de/user/settings/keys) als SSH Key hinzu.
+
+---
 
 ## Das Repository clonen
 
@@ -107,7 +112,9 @@ drwxr-xr-x 17 nils nils 4096 Oct 27 02:24 np163/
 
 Nun können wir diesen Ordner in VSCode öffnen und haben einen Workspace um die Übungsaufgaben zu bearbeiten.
 
-## Git
+---
+
+## Git - Terminal
 
 Nun bewegen wir uns ins Git-Verzeichnis mit `cd np163`. Und führen unseren ersten Git-Command aus `git status`
 
@@ -172,4 +179,36 @@ To ssh://git.laurel.informatik.uni-freiburg.de:2222/2021WS-EiP/np163.git
    06b6eb7..4191d5b  master -> master
 ```
 
-Dieser Vorgang kann ganz einfach über die VSCode Ui gemacht werden. Anmerkungen gerne an [meine Mail](mailto:nils@narl.io) um das Git-Tutorial zu verbessern.
+---
+
+## Git - VSCode
+
+Zunächst erstellen wir eine Datei mit dem Namen `hello_world.py` über die Verzeichnisverwaltung von VSCode. Wir sehen dass die neue Datei bereits grün angezeigt, weil es eine neue Datei im Git ist.
+
+![image not found](src/vscode-01.png)
+
+Nun wechsel wir die Ansicht von der Verzeichnisverwaltung zu Git ganz links außen. 
+
+![image not found](src/vscode-02.png)
+
+Nun drücken wir bei unserer neu erstellten Datei auf das `+`. Diese wird dann als `Staged Changes` angezeigt.
+
+![image not found](src/vscode-03.png)
+
+Nun legen wir eine Nachricht fest welche die Änderungen representiert und beschreibt.
+
+![image not found](src/vscode-04.png)
+
+Nun drücken wir auf `Commit` und nun sind unsere Änderungen übernommen.
+
+![image not found](src/vscode-05.png)
+
+Nun können wir noch auf `Sync Changes` drücken um die Änderungen auch an den Git-Services **Gitea** zu schicken. Danach werden keine weiteren Dateien mehr im Git-Reiter angezeigt und online sehen wir dass unsere Änderungen hochgeladen wurden.
+
+![image not found](src/vscode-06.png)
+
+![image not found](src/vscode-07.png)
+
+---
+
+Für Anregung gerne eine kurze [Mail](mailto:nils@narl.io) schreiben.
