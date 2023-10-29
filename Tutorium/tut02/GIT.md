@@ -187,7 +187,7 @@ Zunächst erstellen wir eine Datei mit dem Namen `hello_world.py` über die Verz
 
 ![image not found](src/vscode-01.png)
 
-Nun wechsel wir die Ansicht von der Verzeichnisverwaltung zu Git ganz links außen. 
+Nun wechsel wir die Ansicht von der Verzeichnisverwaltung zu Git ganz links außen.
 
 ![image not found](src/vscode-02.png)
 
