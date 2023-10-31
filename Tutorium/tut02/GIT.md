@@ -114,8 +114,6 @@ Nun können wir diesen Ordner in VSCode öffnen und haben einen Workspace um die
 
 ---
 
-## Git - Terminal
-
 Nun bewegen wir uns ins Git-Verzeichnis mit `cd np163`. Und führen unseren ersten Git-Command aus `git status`
 
 ```sh
