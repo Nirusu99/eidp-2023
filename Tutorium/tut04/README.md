@@ -14,33 +14,31 @@
 
 - **Schaut genau was muss ausgegeben werden!!!**
 - Achtet auf den Build-Output
-        - **Linter-Error?** (-0.5 Punkte pro Datei)
-        - **Syntax-Error?** (0 Punkte ab Exercise 4)
-        - **Stunden eingetragen?** (-0.5 Punkte)
+  - **Linter-Error?** (-0.5 Punkte pro Datei)
+  - **Syntax-Error?** (0 Punkte ab Exercise 4)
+  - **Stunden eingetragen?** (-0.5 Punkte)
 - lest euch die Aufgaben genau durch
 - kommentiert keinen Quellcode aus, lasst ihn weg, oder lasst ihn stehen
 - Testet euren Code mit `assert`
-      - später lernen wir noch bessere Tests kennen
-      - lasst eure `assert` nicht einfach in der Logik stehen!
+  - später lernen wir noch bessere Tests kennen
+  - lasst eure `assert` nicht einfach in der Logik stehen!
 
-#### Wrong
+    ```py
+    def some_function(arg):
+        assert arg <= 360 # WRONG!
+        return calculate(arg)
+    ```
 
-```py
-def some_function(arg):
-    assert arg <= 360
-    return calculate(arg)
-```
+    ```py
+    def some_function(arg) -> float:
+        return calculate(arg)
 
-#### Right (*kind of*)
-
-```py
-def some_function(arg) -> float:
-    return calculate(arg)
-
-if __name__ == "__main__":
-    assert some_function(0.69)  <= 42
-    assert some_function(0.420) <= 1337
-```
+    if __name__ == "__main__":
+        # Right! Nur testen ob alles tut, mehr nicht
+        # und in __main__ packen, damit nicht jeder import die asserts aufruft
+        assert some_function(0.69)  <= 42
+        assert some_function(0.420) <= 1337
+    ```
 
 ## Vorstellen/Vorrechnen
 
