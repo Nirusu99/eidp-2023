@@ -50,5 +50,9 @@
 - Abgabe Montag 9:00 im [Git](https://git.laurel.informatik.uni-freiburg.de/)
 - Typannotationen jetzt wichtig.
 - `min` Funktion darf in 4.1 nicht benutzt werden.
-- Syntax-Error (**0 Punkte**)
+- Aufgabenteile werden mit **0 Punkten bewertet**, wenn:
+  - Dateien und Funktionen nicht so benannt sind, wie im Aufgabentext gefordert;
+  - Dateien falsche Formate haben, z.B. PDF statt plaintext;
+  - Pythonskripte wegen eines Syntaxfehlers nicht ausführbar sind.
+  - Verwenden Sie nur Befehle und Programmiertechniken, die Inhalt der bisherigen Vorlesungen (bis zum Abgabetermin) und Übungsblättern waren. (Ausnahme: f-Strings)
 - Fragen?
