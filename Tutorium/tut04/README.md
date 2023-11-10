@@ -48,4 +48,7 @@
 ## [Exercise 04](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/exercise/sheet04.pdf)
 
 - Abgabe Montag 9:00 im [Git](https://git.laurel.informatik.uni-freiburg.de/)
+- Typannotationen jetzt wichtig.
+- `min` Funktion darf in 4.1 nicht benutzt werden.
+- Syntax-Error (**0 Punkte**)
 - Fragen?
