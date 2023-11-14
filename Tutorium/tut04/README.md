@@ -56,3 +56,10 @@
   - Pythonskripte wegen eines Syntaxfehlers nicht ausführbar sind.
   - Verwenden Sie nur Befehle und Programmiertechniken, die Inhalt der bisherigen Vorlesungen (bis zum Abgabetermin) und Übungsblättern waren. (Ausnahme: f-Strings)
 - Fragen?
+
+
+# Nachkorrektur
+
+- mw793
+- fk439 (Zeitangabe)
+- jb1484 (Verspätete Akinator)
