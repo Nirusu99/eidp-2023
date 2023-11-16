@@ -23,15 +23,15 @@
 ## Vorrechnen
 
 1. `lists.py`
-    a. `even`:
-    b. `min`:
-    c. `max`:
+    A. `even`:
+    B. `min`:
+    C. `max`:
 2. `euler.py`
-    a. `fac`:
-    b. `approx_e`:
+    A. `fac`:
+    B. `approx_e`:
 3. `binary.py`
-    a. `to_num`:
-    b. `stream_to_nums`:
+    A. `to_num`:
+    B. `stream_to_nums`:
 
 ## [Exercise-05](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/exercise/sheet05.pdf)
 
@@ -52,3 +52,5 @@ def prime_factorization(n):
 ```
 
 #### [Dataclass](./src/data_classes.py)
+
+
