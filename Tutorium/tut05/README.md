@@ -23,15 +23,21 @@
 ## Vorrechnen
 
 1. `lists.py`
-    A. `even`:
-    B. `min`:
-    C. `max`:
+   <ol type="a">
+    <li>`even`: </li>
+    <li>`min`: </li>
+    <li>`max`: </li>
+   </ol>
 2. `euler.py`
-    A. `fac`:
-    B. `approx_e`:
+   <ol type="a">
+    <li>`fac`: </li>
+    <li>`approx_e`: </li>
+   </ol>
 3. `binary.py`
-    A. `to_num`:
-    B. `stream_to_nums`:
+   <ol type="a">
+    <li>`to_num`: </li>
+    <li>`stream_to_nums`: </li>
+   </ol>
 
 ## [Exercise-05](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/exercise/sheet05.pdf)
 
