@@ -23,15 +23,15 @@
 ## Vorrechnen
 
 1. `lists.py`
-   - a) `even`:
-   - b) `min`:
-   - c) `max`:
+   - a) `even`: no43
+   - b) `min`: cl393
+   - c) `max`: mt367
 2. `euler.py`
-   - a) `fac`:
-   - b) `approx_e`:
+   - a) `fac`: au56
+   - b) `approx_e`: rw208
 3. `binary.py`
-   - a) `to_num`:
-   - b) `stream_to_nums`:
+   - a) `to_num`: ua28
+   - b) `stream_to_nums`: md489
 
 ## [Exercise-05](https://proglang.informatik.uni-freiburg.de/teaching/info1/2023/exercise/sheet05.pdf)
 
