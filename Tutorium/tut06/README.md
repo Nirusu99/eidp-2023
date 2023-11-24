@@ -9,7 +9,7 @@
 - Es gibt wieder einen 
     <details>
         <summary>QR-Code:</summary>
-        <img src="../../src/img/discord-invite.png">
+        <img src="../../src/img/discord-invite.png" height=800>
     </details>
 
 ## Korrektur Blatt 05
