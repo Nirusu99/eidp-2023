@@ -6,7 +6,7 @@
     - Dani's-Tutorium: Mi 16:00 - 18:00, Geb. 106, SR 00 007
     - Im Discord könnt ihr euch direkt mit uns Tutoren austauschen oder untereinander
 - Invite: https://s.narl.io/s/discord-invite
-- Es gibt wieder einen 
+- Es gibt wieder einen
     <details>
         <summary>QR-Code:</summary>
         <img src="../../src/img/discord-invite.png" height=800>
@@ -26,16 +26,16 @@
 ## Vorrechnen
 
 1. Python-Game
-    1. `Vec2`: 
-    2. `add_vecs`: 
-    3. `Item`: 
-    4. `Snake`: 
-    5. `Game`: 
-    6. `turn_direction`: 
-    7. `grow_positions`: 
-    8. `collision`: 
-    9. `generate_item`: 
-    10. `pick_item`: 
+    1. `Vec2`: aw616
+    2. `add_vecs`: fk439
+    3. `Item`: ln200
+    4. `Snake`: lp321
+    5. `Game`: rl173
+    6. `turn_direction`: ih205
+    7. `grow_positions`:
+    8. `collision`:
+    9. `generate_item`:
+    10. `pick_item`:
 
 ## Recap - Was ist neu?
 
@@ -70,7 +70,7 @@ fn some_func<T: Add>(some_list: Vec<T>) -> T {
 oder noch schöner
 
 ```rust
-fn some_func<T>(some_list: Vec<T>) -> T 
+fn some_func<T>(some_list: Vec<T>) -> T
 where T: Add<Output = T> + Default,
 {
     // ...
@@ -145,7 +145,7 @@ print(num.number) # 8
 
 Mit dem `match` Keyword lassen sich verschiedene Bedingungen *matchen*
 
-- Zunächst Types: 
+- Zunächst Types:
     - Wir erstellen die Datenklassen
 
         ```python
