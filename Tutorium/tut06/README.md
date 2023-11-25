@@ -17,11 +17,14 @@
 - am Samstag, ich hab mich etwas vertan bei der Korrektur
 - Punkteverteilung und häufige Fehler werden hier hinzugefügt
 
+![img not found](./img/points_ex05.png)
+
 ### Häufige Fehler
 
 - Type annotation
 - `@dataclass` nicht benutzt
 - mutieren von erstellten Objekt
+- Call über Class und nicht über Objekt
 
 ## Vorrechnen
 
