@@ -13,7 +13,7 @@
         - schneller Code schreiben
             <details>
             <summary>Wie viele Zeilen Code schreibt ein Entwickler durchschnittlich am Tag?</summary>
-            10 bis 50 Codezeilen
+            <space><space><space><space>10 bis 50 Codezeilen
             </details>
         - Leichtsinnsfehler ausbessern
     - Kurz: Es nimmt einen repetetive Arbeit ab
@@ -95,9 +95,13 @@
 - Gibt es Rekursionen die nicht iterative berechenbar sind?
     - $\mu$-Rekursionen oder partiell Rekursionen
     - erste partiell rekursive Funktion von Wilhelm Ackermann 1926, die "Ackermannfunktion"
-        $\alpha(0, m) = m + 1$
-        $\alpha(n, 0) = \alpha(n - 1, 1)$
-        $\alpha(n, m) = \alpha(n, \alpha(n, m - 1))$
+        \[
+        \begin{align*}
+            \alpha(0, m) &= m + 1 \\
+            \alpha(n, 0) &= \alpha(n - 1, 1) \\
+            \alpha(n, m) &= \alpha(n, \alpha(n, m - 1))
+        \end{align*}
+        \]
 
         ```python
         def ack(n: int, m: int) -> int:
