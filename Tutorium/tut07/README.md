@@ -91,9 +91,9 @@
     -  Wenn dieser Fertig ist wird berechnet
     -  Z.b. `fac`:
         ```
-        fac(5) 
-        5 * fac(4) 
-        5 * 4 * fac(3) 
+        fac(5)
+        5 * fac(4)
+        5 * 4 * fac(3)
         5 * 4 * 3 * fac(2)
         5 * 4 * 3 * 2 * fac(1)
         5 * 4 * 3 * 2 * 1
@@ -111,7 +111,7 @@
 - Gibt es Rekursionen die nicht iterative berechenbar sind?
     - $\mu$-Rekursionen oder partiell Rekursionen
     - erste partiell rekursive Funktion von Wilhelm Ackermann 1926, die "Ackermannfunktion"
-       
+
         $\alpha(0, m) = m + 1$ \
         $\alpha(n, 0) = \alpha(n - 1, 1)$ \
         $\alpha(n, m) = \alpha(n, \alpha(n, m - 1))$
@@ -132,7 +132,7 @@
 Man kann alles rekursiv Aufbauen mit Operatoren (`+, -, *, /, %, //, &&, and, ...`), also auch Listen oder Strings
 
 ```python
-def all_fac(max: int) -> list[(int, int)]:
+def all_fac(max: int) -> list[tuple[int, int]]:
     if max == 0: # Abbruchbedingung
         return [(0, 1)]
     return [(max, fac(max))] + all_fac(max - 1) # Rekursion

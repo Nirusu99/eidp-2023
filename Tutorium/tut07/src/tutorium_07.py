@@ -27,7 +27,7 @@ def ack(n: int, m: int) -> int:
             return ack(n - 1, ack(n, m - 1))
 
 
-def all_fac(max: int) -> list[(int, int)]:
+def all_fac(max: int) -> list[tuple[int, int]]:
     if max == 0:  # Abbruchbedingung
         return [(0, 1)]
     return [(max, fac(max))] + all_fac(max - 1)  # Rekursion
