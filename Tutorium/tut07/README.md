@@ -41,6 +41,22 @@
 
 #### Also, macht eure Aufgaben selber!
 
+---
+
+## [Advent of Code](https://adventofcode.com/)
+
+- Aktuell gibt es wie jedes Jahr wieder [Advent of Code](https://adventofcode.com/).
+- Jeden Tag eine neue Aufgabe
+- Von einfach bis unmenschlich schwer (tendenziell eher einfach)
+- insane Storyline
+- [Tag 1](https://adventofcode.com/2023/day/1) ist schon da!
+- Auch sehr nice um neue Sprachen zu lernen
+- Persönliche Empfehlungen:
+    - [Rust](https://www.rust-lang.org/) - Multi-paradigm mit einzigartigen Konzepten
+    - [Haskell](https://www.haskell.org/) - Funktionale Programmierung
+    - [Go](https://go.dev/) - OOP, High-Level Programming, sehr einfach Projekte mit aufzusetzen!
+    - [Zig](https://ziglang.org/) - Low-Level Programming, rein prozedural, C-Alternative
+
 ----
 
 ## Wichtiges/Hilfreiches für Exercise-07
