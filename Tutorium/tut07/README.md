@@ -132,6 +132,8 @@ def fib_str(n: int) -> str:
     return f"({fib_str(n - 1)} + {fib_str(n - 2)})" # Rekursion
 ```
 
+---
+
 ### Rekursion in Bäumen
 
 - Drei möglichkeiten einen Baum *abzulaufen*
@@ -168,3 +170,7 @@ def fib_str(n: int) -> str:
                 case _:
                     return
         ```
+
+---
+
+## Fragen?
