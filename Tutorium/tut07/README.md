@@ -95,13 +95,13 @@
 - Gibt es Rekursionen die nicht iterative berechenbar sind?
     - $\mu$-Rekursionen oder partiell Rekursionen
     - erste partiell rekursive Funktion von Wilhelm Ackermann 1926, die "Ackermannfunktion"
-        \[
+        $$
         \begin{align*}
             \alpha(0, m) &= m + 1 \\
             \alpha(n, 0) &= \alpha(n - 1, 1) \\
             \alpha(n, m) &= \alpha(n, \alpha(n, m - 1))
         \end{align*}
-        \]
+        $$
 
         ```python
         def ack(n: int, m: int) -> int:
