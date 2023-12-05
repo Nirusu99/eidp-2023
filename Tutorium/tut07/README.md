@@ -2,6 +2,7 @@
 
 ## Execrise 06
 
+![img not found](./img/punkteverteilung_exercise06.png)
 - Korrektur wieder am Samstag
 
 ### Problematik ChatGPT und Plagiate
