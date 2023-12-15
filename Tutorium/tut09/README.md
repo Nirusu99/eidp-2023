@@ -4,7 +4,7 @@ paginate: true
 class: invert
 # theme: uncover
 footer: Tutorium 09 - 16.12.2023 - Nils Pukropp - https://s.narl.io/s/tutorium-09
-header: 
+header:
 ---
 
 # Tutorium 09
@@ -330,8 +330,8 @@ xs.internal_list # ????
 ```python
 @dataclass
 class MyList[T]:
-    internal_list: InitVar[list[T]]
-    length: InitVar[int]
+    _internal_list: InitVar[list[T]]
+    _length: InitVar[int]
 
     def __init__(self):
         self.__internal_list = []
@@ -353,8 +353,8 @@ class MyList[T]:
 ```python
 @dataclass
 class MyList[T]:
-    internal_list: InitVar[list[T]]
-    length: InitVar[int]
+    _internal_list: InitVar[list[T]]
+    _length: InitVar[int]
 
     def __init__(self):
         self.__internal_list = []
@@ -368,8 +368,8 @@ class MyList[T]:
 ```python
 @dataclass
 class MyList[T]:
-    internal_list: InitVar[list[T]]
-    length: InitVar[int]
+    _internal_list: InitVar[list[T]]
+    _length: InitVar[int]
 
     def __init__(self):
         self.__internal_list = []
@@ -392,7 +392,7 @@ class MyList[T]:
 
 ```python
 class GameObject:
-    position: InitVar[tuple[int, int]]
+    _position: InitVar[tuple[int, int]]
 
     def __post__init__(self, position: tuple[int, int]):
         assert (0, 0) <= position
@@ -410,7 +410,7 @@ class GameObject:
 ```python
 @dataclass
 class GameObject:
-    position: InitVar[tuple[int, int]]
+    _position: InitVar[tuple[int, int]]
 
     def __post_init__(self, position: tuple[int, int]):
         assert (0, 0) > position
