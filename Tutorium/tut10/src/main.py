@@ -3,10 +3,6 @@ from ui import run_command, Color
 from spacearena import Difficulty, SpaceArena
 
 
-
-if __name__ == '__main__':
-
-
 if __name__ == '__main__':
     difficulty: Difficulty | None = None
     while not difficulty:
