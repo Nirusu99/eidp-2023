@@ -3,27 +3,27 @@ from dataclasses import dataclass, InitVar
 
 @dataclass
 class MyList[T]:
-    internal_list: InitVar[list[T]]
-    length: InitVar[int]
-    
-    def __init__(self):
-        self.__internal_list = []
+    _internal_list: InitVar[list[T]]
+    _length: InitVar[int]
+
+    def __init__(self) -> None:
+        self.__internal_list: list[T] = []
         self.__length = 0
-        
-    def add(self, item: T):
+
+    def add(self, item: T) -> None:
         self.__internal_list += [item]
         self.__length += 1
-        
 
     @property
     def length(self) -> int:
         return self.__length
 
+
 @dataclass
 class GameObject:
-    position: InitVar[tuple[int, int]]
+    _position: InitVar[tuple[int, int]]
 
-    def __post_init__(self, position: tuple[int, int]):
+    def __post_init__(self, position: tuple[int, int]) -> None:
         assert (0, 0) <= position
         self.__position = position
 
@@ -32,16 +32,17 @@ class GameObject:
         return self.__position
 
     @position.setter
-    def position(self, position: tuple[int, int]):
+    def position(self, position: tuple[int, int]) -> None:
         if (0, 0) > position:
             return
         self.__position = position
-    
+
+
 if __name__ == "__main__":
     xs: MyList[int] = MyList()
     xs.add(100)
     assert xs.length == 1
-    position = (0, 0)
+    position: tuple[int, int] = (0, 0)
     my_obj = GameObject(position)
     assert my_obj.position == (0, 0)
     try:
@@ -49,7 +50,7 @@ if __name__ == "__main__":
     except AssertionError:
         pass
     else:
-        raise AssertionError(f"{my_obj} should have thrown a assertation error")
+        raise AssertionError(
+            f"{my_obj} should have thrown a assertation error")
     my_obj.position = (-1, 0)
     assert my_obj.position == (0, 0)
-    
