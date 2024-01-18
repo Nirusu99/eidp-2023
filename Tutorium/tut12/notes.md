@@ -10,11 +10,12 @@
         - 
     - Advanced
         - Collections
-        - args, kwargs
+        - ~~args, kwargs~~
 - Functional programming
+    - `lambda`
     - map
     - filter
     - reduce
+    - flatten
     - function composition
-    - monads - Result/Optional
-- Pattern-Matching
+    - Maybe-Type
