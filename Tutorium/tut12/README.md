@@ -225,4 +225,95 @@ Musterlösung 11 - Wiederholung Types - Functions!
 
 ## Funktionale Programmierung - was ist das?
 
-- 
+- Funktionen sind äquivalent zu Datenobjekten
+- anonyme Funktionen aka Lambdas
+- Closures
+- Programmablauf mit Verkettung und Komposition von Funktionen
+
+---
+
+## Funktionen sind Datenobjekte
+
+- Jede Funktion hat den Datentyp `Callable`
+- Wir können Funktionen wie alle anderen Objekte variabeln zuweisen
+```python
+def add(a: int, b: int) -> int:
+    return a + b
+
+add_but_variable = add
+
+print(add_but_variable(3, 2)) # 5
+```
+
+---
+
+## Anonyme Funktionen - `lambda`
+
+- Mit dem `lambda` Keyword lassen sich anonyme Funktionen definieren ohne `def`
+- Bietet sich vor allem an für kleine Funktionen und Kompositionen von Funktionen
+    ```python
+    print(reduce(lambda x, y: x + y, [1, 2, 3, 4])) # 10
+    ```
+- hat als Datentyp auch `Callable`
+    ```python
+    add: Callable[[int, int], int] = lambda x, y: x + y
+    ```
+
+---
+
+## Closures 
+
+- Verkettete Funktionen, bei denen die Variabeln aus vorherigen benutzt werden können
+    ```python
+    def poly(x: float) -> Callable[[float, float], Callable[[float], float]]:
+        return lambda a, b: lambda c: a * x ** 2 + b * x + c
+
+    print(poly(3)(2, 3)(5)) # 2 * 3 ** 2 + 3 * 3 + 5 = 32
+    ```
+- kein wirklich schönes Beispiel, ein besseres ist `compose` für Kompositionen
+
+---
+
+## Komposition
+
+- Verketten von Funktionen
+    ```python
+    def compose[T](*funcs: Callable[[T], T]) -> Callable[[T], T]:
+        return reduce(lambda f, g: lambda n: f(g(n)), funcs)
+        
+    f: Callable[[int], int] = lambda n: n + 42
+    g: Callable[[int], int] = lambda n: n ** 2
+    h: Callable[[int], int] = lambda n: n - 3
+
+    print(compose(f, g, h)(0))
+    ```
+
+---
+
+## Higher-Order Functions
+
+- nehmen eine oder mehrere `Callable` als Argument
+- geben ein `Callable` zurück
+
+### Higher-Order-Functions - `map`
+
+- Wendet ein `Callable` auf jedes Element in einem `Iterable` an
+
+    ```python
+    def map[T, R](func: Callable[[T], R], xs: Iterable[T]) -> Iterable[R]:
+        return [func(x) for x in xs]
+
+    numeric_list = list(map(lambda e: int(e), ['1', '2', '3']))
+    print(numeric_list) # [1, 2, 3]
+    ```
+
+---
+
+### Higher-Order-Functions - `filter`
+
+- `filter` verarbeitet Datenstrukturen anhand eines Prädikats (`Callable`)
+- behält nur Elemente die das Prädikat erfüllen
+    ```python
+    def filter[T](predicate: Callable[[T], bool], xs: Iterable[T]) -> Iterable[T]:
+        return [x for x in xs if predicate(x)]
+    ```
