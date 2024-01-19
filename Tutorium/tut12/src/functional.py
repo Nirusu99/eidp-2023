@@ -48,8 +48,9 @@ def main():
     # f(g(h(0))) <=> ((0 - 3) ** 2) + 42 = 51
     assert (tmp := fhg(0)) == 51
     assert compose(f, g, h)(0) == 51
-    assert list(filter(lambda e: bool(e), [1, 2, 3, None, 5, 6])) == [1, 2, 3, 5, 6]
-    assert list(filter(lambda e: not bool(e), [1, 2, 3, None, 5, 6])) == [None]
+    predicate = lambda e: e
+    assert list(filter(predicate, [1, 2, 3, None, 5, 6])) == [1, 2, 3, 5, 6]
+    assert list(filter(lambda e: e is None, [1, 2, 3, None, 5, 6])) == [None]
 
     assert list(map(lambda e: str(e), [1, 2, 3, 4, 5, 6, "hello_functional"])) == ["1", "2", "3", "4", "5", "6", "hello_functional"]
     

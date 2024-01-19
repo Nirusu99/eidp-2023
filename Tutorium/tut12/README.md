@@ -249,8 +249,6 @@ def has_cycle(graph: Graph[Any]) -> bool:
 - **statische Typisierung** überprüft die gegebenen Typen zur **Übersetzungszeit**
     - also während wir den Quellcode übersetzen
 
-### Was ist nun Python?
-
 ---
 
 ## Type annotations - Typisierung
@@ -259,6 +257,10 @@ def has_cycle(graph: Graph[Any]) -> bool:
     - also erst wenn das Programm *läuft*
 - **statische Typisierung** überprüft die gegebenen Typen zur **Übersetzungszeit**
     - also während wir den Quellcode übersetzen
+  
+### Was ist nun Python?
+
+---
 
 ### Was ist nun Python?
 
@@ -266,7 +268,7 @@ def has_cycle(graph: Graph[Any]) -> bool:
     - wir müssen unsere `.py` Datei ausführen bevor wir wissen ob alles korrekt ist
 - **Pylance** ist ein eigenes Programm
     - es soll beim Schreiben bereits **Typverletzungen** erkennen
-    - **unvollständige** Typüberprüfung
+    - **unvollständige** Typüberprüfung, es soll nur den Entwickler unterstützen
 
 ---
 
@@ -524,7 +526,7 @@ print(add_but_variable(3, 2)) # 5
     def filter[T](predicate: Callable[[T], bool], xs: Iterable[T]) -> Iterable[T]:
         return [x for x in xs if predicate(x)]
         
-    predicate: Callable[[int | None] bool] = lambda e: bool(e)
+    predicate: Callable[[int | None] bool] = lambda e: e is not None
     none_free_list: list[int] = list(filter(predicate, [1, 2, 3, None, 5, 6]))
     print(none_free_list) # [1, 2, 3, 5, 6] - kein None
     ```
