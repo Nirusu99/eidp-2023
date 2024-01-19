@@ -14,6 +14,213 @@ Musterlösung 11 - Wiederholung Types - Functions!
 
 ---
 
+# Musterlösung - Exercise 11
+
+---
+
+# Aufgabe 11.1 - Generatoren; `generators.py` [`10p`]
+
+---
+
+## Aufgabe 11.1 a - collatz; [`2.5p`]
+Es seien $i \in \mathbb{N}_0$ und $n \in \mathbb{N}$, so ist die Collatz-Folge definiert als
+
+$$
+\begin{align*}
+    c_0     &= n \\
+    c_{i+1} &= 
+    \begin{cases} 
+        \frac{c_i}{2},      &c_i\mod 2 = 0 \\
+        3 \cdot c_i + 1,    &c_i\mod 2 = 1
+    \end{cases}
+\end{align*}
+$$
+
+Dabei gilt $c_i = 1$ als Abbruchbedingung des Generators
+
+---
+
+## Aufgabe 11.1 a - collatz; [`2.5p`]
+
+```python
+def collatz(n: int) -> Generator[int, None, None]:
+    if n < 1:
+        return
+    while n > 1:
+        yield n
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+    yield n
+```
+
+---
+
+## Aufgabe 11.1 b - random; [`2.5p`]
+
+---
+
+## Aufgabe 11.1 b - random; [`2.5p`]
+
+```python
+def random(seed: int, a: int, b: int, m: int) -> Iterator[int]:
+    yi = seed
+    while True:
+        yield yi
+        yi = (a * yi + b) % m
+```
+
+---
+
+## Aufgabe 11.1 c - chunks; [`2.5p`]
+
+---
+
+## Aufgabe 11.1 c - chunks; [`2.5p`]
+
+```python
+def chunks[T](iter: Iterator[T], n: int) -> Iterator[list[T]]:
+    while True:
+        xs = []
+        try:
+            for _ in range(n):
+                xs.append(next(iter))
+            yield xs
+        except StopIteration:
+            if xs:
+                yield xs
+            break
+```
+
+---
+
+## Aufgabe 11.1 d - flatten; [`2.5p`]
+
+---
+
+## Aufgabe 11.1 d - flatten; [`2.5p`]
+
+```python
+def flatten[T](iters: Iterator[list[T]]) -> Iterator[T]:
+    for iter in iters:
+        yield from iter
+```
+
+---
+
+# Aufgabe 11.2 - Graphen; `graphs.py` [`10p`]
+
+Typaliase als Hilfestellung
+```python
+type GDict[T] = dict[T, set[T]]
+type Graph[T] = GDict[T]
+```
+
+---
+
+## Aufgabe 11.2 a - is_graph; [`2.5p`]
+
+---
+
+## Aufgabe 11.2 a - is_graph; [`2.5p`]
+
+```python
+def is_graph(d: GDict[Any]) -> bool:
+    for vals in d.values():
+        for val in vals:
+            if val not in d.keys():
+                return False
+    return True
+
+```
+
+---
+
+## Aufgabe 11.2 b - to_graph; [`2.5p`]
+
+---
+
+## Aufgabe 11.2 b - to_graph; [`2.5p`]
+
+```python
+def to_graph[T](d: GDict[T]) -> Graph[T]:
+    res = dict()
+    for k, vals in d.items():
+        for val in vals:
+            if val not in d:
+                res[val] = set()
+        res[k] = vals
+    return res
+```
+
+---
+
+## Aufgabe 11.2 c - nodes, edges; [`2.5p`]
+
+---
+
+## Aufgabe 11.2 c - nodes, edges; [`2.5p`]
+
+```python
+def edges[T](graph: Graph[T]) -> Iterator[tuple[T, T]]:
+    for key, value in graph.items():
+        for v in value:
+            yield (key, v)
+
+
+def nodes[T](graph: Graph[T]) -> Iterator[T]:
+    yield from graph.keys()
+```
+
+---
+
+## Aufgabe 11.2 d - invert_graph; [`2.5p`]
+
+---
+
+## Aufgabe 11.2 d - invert_graph; [`2.5p`]
+
+```python
+def invert_graph[T](graph: Graph[T]) -> Graph[T]:
+    res = dict()
+    for n in nodes(graph):
+        res[n] = set()
+    for a, b in edges(graph):
+        res[b].add(a)
+    return res
+```
+
+---
+
+## Aufgabe 11.2 e - has_cycle; [`0p`]
+
+---
+
+## Aufgabe 11.2 e - has_cycle; [`0p`]
+
+```python
+def find_cycle[T](graph: Graph[T], start: T, visited: set[T]) -> bool:
+    assert start in graph
+    if start in visited:
+        return True
+    for value in graph[start]:
+        if find_cycle(graph, value, visited | {start}):
+            return True
+    return False
+
+
+def has_cycle(graph: Graph[Any]) -> bool:
+    return any(find_cycle(graph, node, set()) for node in graph)
+```
+
+---
+
+## Aufgabe 11.3 - Erfahrungen `NOTES.md`; [`0p`]
+
+### Tragt eure Stunden ein!
+
+---
 # Type annotations
 (Wiederholung)
 
@@ -279,7 +486,7 @@ print(add_but_variable(3, 2)) # 5
 - Verketten von Funktionen
     ```python
     def compose[T](*funcs: Callable[[T], T]) -> Callable[[T], T]:
-        return reduce(lambda f, g: lambda n: f(g(n)), funcs)
+        return fold(lambda f, g: lambda n: f(g(n)), funcs)
         
     f: Callable[[int], int] = lambda n: n + 42
     g: Callable[[int], int] = lambda n: n ** 2
@@ -295,7 +502,7 @@ print(add_but_variable(3, 2)) # 5
 - nehmen eine oder mehrere `Callable` als Argument
 - geben ein `Callable` zurück
 
-### Higher-Order-Functions - `map`
+### Higher-Order-Function - `map`
 
 - Wendet ein `Callable` auf jedes Element in einem `Iterable` an
 
@@ -309,11 +516,68 @@ print(add_but_variable(3, 2)) # 5
 
 ---
 
-### Higher-Order-Functions - `filter`
+### Higher-Order-Function - `filter`
 
 - `filter` verarbeitet Datenstrukturen anhand eines Prädikats (`Callable`)
 - behält nur Elemente die das Prädikat erfüllen
     ```python
     def filter[T](predicate: Callable[[T], bool], xs: Iterable[T]) -> Iterable[T]:
         return [x for x in xs if predicate(x)]
+        
+    predicate: Callable[[int | None] bool] = lambda e: bool(e)
+    none_free_list: list[int] = list(filter(predicate, [1, 2, 3, None, 5, 6]))
+    print(none_free_list) # [1, 2, 3, 5, 6] - kein None
     ```
+
+---
+
+### Higher-Order-Function - `fold`
+
+- Kombiniert Elemente einer Datenstruktur
+    ```python
+    def fold[T](func: Callable[[T, T], T], xs: Iterable[T]) -> T:
+        it: Iterator[T] = iter(xs)
+        value: T | None = None
+        for x in it:
+            match value:
+                case None:
+                    value = x
+                case _:
+                    value = func(value, x)
+        if not value:
+            raise TypeError("can't fold empty list")
+        return value
+    
+    sum: Callable[[Iterable[int]], int] = lambda xs: fold(lambda x, y: x + y, xs)
+    print(sum([1, 2, 3, 4])) # 10
+    ```
+
+---
+
+### keine Higher-Order-Function - `flatten`
+
+- Nimmt mehrdimensionale Listen und macht eine Liste draus
+    ```python
+    def flatten(xs: Iterable[Any]) -> Iterable[Any]:
+        new_list = []
+        for s in xs:
+            if isinstance(s, Iterable):
+                new_list += flatten(s)
+            else:
+                new_list.append(s)
+        return new_list
+
+    flattened = list(flatten([[1, 2, 3], 4, [[5, 6], 7, [8, 9]]]))
+    print(flattened) # [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    ```
+- nimmt weder `Callable` als Argumente
+- gibt kein `Callable` zurück
+- ist keine Higher-Order-Function
+
+---
+
+# Fragen zur funktionalen Programmierung?
+
+---
+
+# Weitere allgemeine Fragen?
