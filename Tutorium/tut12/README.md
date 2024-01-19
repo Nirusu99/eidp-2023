@@ -266,7 +266,7 @@ def has_cycle(graph: Graph[Any]) -> bool:
     - wir müssen unsere `.py` Datei ausführen bevor wir wissen ob alles korrekt ist
 - **Pylance** ist ein eigenes Programm
     - es soll beim Schreiben bereits **Typverletzungen** erkennen
-    - **unvollständige** Typüberprüfung, soll nur den Programmierer unterstützen
+    - **unvollständige** Typüberprüfung
 
 ---
 
@@ -332,8 +332,8 @@ def has_cycle(graph: Graph[Any]) -> bool:
         x: int
         y: int
 
-    def distance_from(self, other: 'Point') -> float:
-        return math.sqrt((other.x - self.x) ** 2 + (other.y - self.y) ** 2)
+        def distance_from(self, other: 'Point') -> float:
+            return math.sqrt((other.x - self.x) ** 2 + (other.y - self.y) ** 2)
     ```
 * `self` muss **nicht** Typannotiert werden, kann aber
 * `other` hingegen schon, wegen Python muss in der Klasse mit `'` annotiert werden
