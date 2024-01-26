@@ -3,224 +3,63 @@ marp: true
 paginate: true
 # class: invert
 theme: rose-pine
-footer: Tutorium 12 - 19.01.2024 - Nils Pukropp - https://s.narl.io/s/tutorium-12
+footer: Tutorium 13 - 26.01.2024 - Nils Pukropp - https://s.narl.io/s/tutorium-13
 header:
 math: mathjax
 ---
 
-# Tutorium 12 - 19.01.2024
+# Tutorium 13 - 26.01.2024
 
-Musterlösung 11 - Wiederholung Types - Functions!
-
----
-
-# Musterlösung - Exercise 11
+Orga - Wiederholung Types - Functions! - Decorator
 
 ---
 
-# Aufgabe 11.1 - Generatoren; `generators.py` [`10p`]
+# Orga
+
+---
+## Wegen fehlendem Tutorium am 19.01.
+
+- Jeder kriegt die 6 Punkte für Anwesenheit
+  - Auf Blatt 13 als Extrapunkte unter *Anmerkungen*
+- Sorry fürs nicht beantworten von manchen Nachrichten
+- Falls ihr glaubt ihr bekommt knapp nicht genug Punkte schreibt mich einfach an, man wird schon noch irgendwo Punkte finden
 
 ---
 
-## Aufgabe 11.1 a - collatz; [`2.5p`]
-Es seien $i \in \mathbb{N}_0$ und $n \in \mathbb{N}$, so ist die Collatz-Folge definiert als
+## Syntax-Fehler
 
-$$
-\begin{align*}
-    c_0     &= n \\
-    c_{i+1} &= 
-    \begin{cases} 
-        \frac{c_i}{2},      &c_i\mod 2 = 0 \\
-        3 \cdot c_i + 1,    &c_i\mod 2 = 1
-    \end{cases}
-\end{align*}
-$$
-
-Dabei gilt $c_i = 1$ als Abbruchbedingung des Generators
+- Für **Syntax-Fehler** habe ich im allgemeinen **0 Punkte** in der jeweiligen Datei vergeben
+  - Das euer Programm ausführbar ist sollte das mindeste sein!
+  - Ihr sollt euer Programm sowieso selbständig testen und ich geh mal davon aus das ist nicht passiert wenn sich die Datei nichtmal ausführen lässt
+- Zeitdruck kann ich voll nachvollziehen
 
 ---
 
-## Aufgabe 11.1 a - collatz; [`2.5p`]
+## Nachträgliches ausbessern
 
-```python
-def collatz(n: int) -> Generator[int, None, None]:
-    if n < 1:
-        return
-    while n > 1:
-        yield n
-        if n % 2 == 0:
-            n = n // 2
-        else:
-            n = 3 * n + 1
-    yield n
-```
+- Ihr verbessert euren SyntaxFehler (eure Python-Datei ist ausführbar)
+- Ihr schickt mir eine `.zip` oder eine `.tar.gz` mit dem verbesserten Code an [nils@narl.io](mailto:nils@narl.io)
+  - verbessert nichts anderes!
+  - Schreibt kurz in die Mail welches Blatt + Aufgabe + Kürzel
+- Ich korrigiere eure Abgabe nachträglich und ihr bekommt zumindest mehr als 0 Punkte
+- Bitte nur wenn ihr wirklich die Punkte braucht und habt etwas Geduld mit der Korrektur
 
 ---
 
-## Aufgabe 11.1 b - random; [`2.5p`]
+## Allgemeines
+
+- biete euch Übungen passend zur Klausur
+  - kein genaues Datum, aber vor dem 09.02
+- Klausur ist *wahrscheinlich* am 19.02.
+- Short-Link zu der Übung [https://s.narl.io/s/eidp-ub](https://s.narl.io/s/eidp-ub)
+  - aktuell noch nicht online
 
 ---
 
-## Aufgabe 11.1 b - random; [`2.5p`]
-
-```python
-def random(seed: int, a: int, b: int, m: int) -> Iterator[int]:
-    yi = seed
-    while True:
-        yield yi
-        yi = (a * yi + b) % m
-```
+# Link: [https://s.narl.io/s/eidp-ub](https://s.narl.io/s/eidp-ub)
 
 ---
 
-## Aufgabe 11.1 c - chunks; [`2.5p`]
-
----
-
-## Aufgabe 11.1 c - chunks; [`2.5p`]
-
-```python
-def chunks[T](iter: Iterator[T], n: int) -> Iterator[list[T]]:
-    while True:
-        xs = []
-        try:
-            for _ in range(n):
-                xs.append(next(iter))
-            yield xs
-        except StopIteration:
-            if xs:
-                yield xs
-            break
-```
-
----
-
-## Aufgabe 11.1 d - flatten; [`2.5p`]
-
----
-
-## Aufgabe 11.1 d - flatten; [`2.5p`]
-
-```python
-def flatten[T](iters: Iterator[list[T]]) -> Iterator[T]:
-    for iter in iters:
-        yield from iter
-```
-
----
-
-# Aufgabe 11.2 - Graphen; `graphs.py` [`10p`]
-
-Typaliase als Hilfestellung
-```python
-type GDict[T] = dict[T, set[T]]
-type Graph[T] = GDict[T]
-```
-
----
-
-## Aufgabe 11.2 a - is_graph; [`2.5p`]
-
----
-
-## Aufgabe 11.2 a - is_graph; [`2.5p`]
-
-```python
-def is_graph(d: GDict[Any]) -> bool:
-    for vals in d.values():
-        for val in vals:
-            if val not in d.keys():
-                return False
-    return True
-
-```
-
----
-
-## Aufgabe 11.2 b - to_graph; [`2.5p`]
-
----
-
-## Aufgabe 11.2 b - to_graph; [`2.5p`]
-
-```python
-def to_graph[T](d: GDict[T]) -> Graph[T]:
-    res = dict()
-    for k, vals in d.items():
-        for val in vals:
-            if val not in d:
-                res[val] = set()
-        res[k] = vals
-    return res
-```
-
----
-
-## Aufgabe 11.2 c - nodes, edges; [`2.5p`]
-
----
-
-## Aufgabe 11.2 c - nodes, edges; [`2.5p`]
-
-```python
-def edges[T](graph: Graph[T]) -> Iterator[tuple[T, T]]:
-    for key, value in graph.items():
-        for v in value:
-            yield (key, v)
-
-
-def nodes[T](graph: Graph[T]) -> Iterator[T]:
-    yield from graph.keys()
-```
-
----
-
-## Aufgabe 11.2 d - invert_graph; [`2.5p`]
-
----
-
-## Aufgabe 11.2 d - invert_graph; [`2.5p`]
-
-```python
-def invert_graph[T](graph: Graph[T]) -> Graph[T]:
-    res = dict()
-    for n in nodes(graph):
-        res[n] = set()
-    for a, b in edges(graph):
-        res[b].add(a)
-    return res
-```
-
----
-
-## Aufgabe 11.2 e - has_cycle; [`0p`]
-
----
-
-## Aufgabe 11.2 e - has_cycle; [`0p`]
-
-```python
-def find_cycle[T](graph: Graph[T], start: T, visited: set[T]) -> bool:
-    assert start in graph
-    if start in visited:
-        return True
-    for value in graph[start]:
-        if find_cycle(graph, value, visited | {start}):
-            return True
-    return False
-
-
-def has_cycle(graph: Graph[Any]) -> bool:
-    return any(find_cycle(graph, node, set()) for node in graph)
-```
-
----
-
-## Aufgabe 11.3 - Erfahrungen `NOTES.md`; [`0p`]
-
-### Tragt eure Stunden ein!
-
----
 # Type annotations
 (Wiederholung)
 
