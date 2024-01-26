@@ -10,7 +10,7 @@ math: mathjax
 
 # Tutorium 13 - 26.01.2024
 
-Orga - Wiederholung Types - Functions! - Decorator
+Orga - Wiederholung Types - Functions!
 
 ---
 
